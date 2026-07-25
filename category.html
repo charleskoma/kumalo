@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Category — Kumalo</title>
+<meta name="description" id="metaDescription" content="Kumalo — Ugandan news, politics, business, sports, entertainment, lifestyle, health and culture.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101418'/%3E%3Ctext x='32' y='46' font-family='Arial,sans-serif' font-size='36' font-weight='800' text-anchor='middle' fill='%23FFFFFF'%3EK%3C/text%3E%3C/svg%3E">
+
+<!-- AdSense: paste publisher ID and uncomment, same as index.html -->
+<!--
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FFFFFF;--surface:#F6F7F8;--ink:#101418;--muted:#5F6672;--line:#E8EAED;
+  --accent:#E03E2D;--max:1200px;--r-sm:10px;--r-md:14px;--r-lg:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:8px 16px;border-radius:0 0 10px 0;font-size:14px;font-weight:600;z-index:200}
+.skip:focus{left:0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+.kicker{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.meta{font-size:13px;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:600}
+
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.logo{font-size:22px;font-weight:800;letter-spacing:-.03em}
+.logo span{color:var(--accent)}
+nav.main{display:flex;gap:2px;margin-left:auto}
+nav.main a{font-size:14px;font-weight:500;color:var(--muted);padding:8px 11px;border-radius:8px;transition:color .15s,background .15s;white-space:nowrap}
+nav.main a:hover{color:var(--ink);background:var(--surface)}
+nav.main a[aria-current]{color:var(--ink);font-weight:600}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:38px;font-size:17px;margin-left:auto}
+nav.main.open{display:flex;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;gap:2px;padding:12px 24px 16px;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(16,20,24,.06)}
+nav.main.open a{padding:12px}
+@media (max-width:920px){nav.main{display:none}.menu-btn{display:block}}
+@media (max-width:720px){.wrap{padding:0 18px}}
+
+.ad-slot{margin:28px auto;text-align:center}
+.ad-slot .ad-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9AA1AB;margin-bottom:8px}
+.ad-frame{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);min-height:96px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.house-ad{display:block;padding:26px 22px;width:100%}
+.house-ad h4{font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
+.house-ad p{font-size:13.5px;color:var(--muted);max-width:440px;margin:0 auto}
+.house-ad .go{color:var(--accent);font-weight:600;font-size:13.5px}
+.custom-ad{display:flex;align-items:stretch;width:100%;text-align:left;background:var(--bg)}
+.custom-ad .art{width:150px;flex:none;background-size:cover;background-position:center;border-radius:var(--r-sm);margin:12px 0 12px 12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px}
+.custom-ad .txt{padding:16px 18px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.custom-ad .txt h4{font-size:15.5px;font-weight:700;margin-bottom:3px}
+.custom-ad .txt p{font-size:13px;color:var(--muted);margin-bottom:8px}
+.custom-ad .cta{align-self:flex-start;font-size:12.5px;font-weight:600;color:var(--accent)}
+
+.page-head{padding:36px 0 12px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.page-head .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px}
+.page-head .crumbs a:hover{color:var(--accent)}
+.page-head h1{font-size:clamp(28px,4.2vw,42px);font-weight:800;letter-spacing:-.03em}
+.page-head p{font-size:15px;color:var(--muted);margin-top:8px}
+
+.feed .row{display:grid;grid-template-columns:1fr 200px;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.feed .row:last-of-type{border-bottom:none}
+.thumb{position:relative;overflow:hidden;border-radius:var(--r-sm);background:var(--surface);aspect-ratio:16/10}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+a:hover .thumb img{transform:scale(1.03)}
+.feed h3{font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.35;margin:4px 0 6px;transition:color .15s}
+.feed a:hover h3{color:var(--accent)}
+.feed .dek{font-size:14.5px;color:var(--muted);margin-bottom:8px;line-height:1.55}
+.empty-state{padding:56px 24px;text-align:center;background:var(--surface);border-radius:var(--r-lg);margin-bottom:28px}
+.empty-state h2{font-size:20px;font-weight:700;margin-bottom:8px}
+.empty-state p{font-size:14.5px;color:var(--muted);margin-bottom:16px}
+.empty-state a{color:var(--accent);font-weight:600}
+
+@media (max-width:720px){
+  .feed .row{grid-template-columns:1fr 120px;gap:16px}
+  .feed .thumb{aspect-ratio:1/1}
+  .feed .dek{display:none}
+}
+
+footer.site{border-top:1px solid var(--line);margin-top:56px;padding:32px 0 28px}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.foot-bottom a{font-weight:500}
+.foot-bottom a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Kumalo home">Kumalo<span>.</span></a>
+    <nav class="main" id="mainNav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="category.html?cat=Politics" id="navPolitics">Politics</a>
+      <a href="category.html?cat=Business" id="navBusiness">Business</a>
+      <a href="category.html?cat=Sports" id="navSports">Sports</a>
+      <a href="category.html?cat=Entertainment" id="navEntertainment">Entertainment</a>
+      <a href="category.html?cat=Lifestyle" id="navLifestyle">Lifestyle</a>
+      <a href="category.html?cat=Health" id="navHealth">Health</a>
+    </nav>
+    <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('mainNav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="ad-slot" data-ad-slot="leaderboard">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-frame"></div>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span id="catName">Category</span></nav>
+    <h1 id="catHeading">Category</h1>
+    <p id="catCount"></p>
+  </div>
+
+  <section class="feed" id="feedList" aria-label="Category stories"></section>
+
+  <div class="ad-slot" data-ad-slot="footer">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-frame"></div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>© 2026 Kumalo · Made in Kampala</span>
+      <span><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="mailto:ads@kumalo.ug">Advertise with us</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const SANITY_PROJECT_ID = "y0yye7lu";
+const SANITY_DATASET = "production";
+const SANITY_API_VERSION = "v2024-01-01";
+
+function sanityQueryUrl(query, params){
+  const base = "https://" + SANITY_PROJECT_ID + ".api.sanity.io/" + SANITY_API_VERSION + "/data/query/" + SANITY_DATASET;
+  const usp = new URLSearchParams();
+  usp.set("query", query);
+  if (params){
+    Object.keys(params).forEach(function(k){ usp.set("$" + k, JSON.stringify(params[k])); });
+  }
+  return base + "?" + usp.toString();
+}
+
+async function sanityFetch(query, params){
+  const res = await fetch(sanityQueryUrl(query, params));
+  if (!res.ok) throw new Error("Sanity request failed: " + res.status);
+  const json = await res.json();
+  return json.result;
+}
+
+function urlForImage(source, width){
+  if (!source || !source.asset || !source.asset._ref) return "";
+  const parts = source.asset._ref.split("-");
+  const id = parts[1], dims = parts[2], format = parts[3];
+  let url = "https://cdn.sanity.io/images/" + SANITY_PROJECT_ID + "/" + SANITY_DATASET + "/" + id + "-" + dims + "." + format;
+  if (width) url += "?w=" + width + "&auto=format";
+  return url;
+}
+
+function escapeHTML(str){
+  const div = document.createElement("div");
+  div.textContent = str == null ? "" : String(str);
+  return div.innerHTML;
+}
+
+function formatDate(iso){
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"});
+}
+
+function postUrl(slug){
+  return "post.html?slug=" + encodeURIComponent(slug);
+}
+
+function renderRow(post){
+  const img = urlForImage(post.coverImage, 500);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  const meta = formatDate(post.publishedAt) + (post.readTime ? " · " + post.readTime + " min" : "");
+  return '<article class="row"><a href="' + postUrl(post.slug) + '" style="display:contents">' +
+    '<div><span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h3>' + escapeHTML(post.title) + '</h3>' +
+    '<p class="dek">' + escapeHTML(post.excerpt) + '</p>' +
+    '<div class="meta">' + meta + '</div></div>' +
+    '<div class="thumb"><img src="' + img + '" width="500" height="320" alt="' + alt + '" loading="lazy"></div>' +
+    '</a></article>';
+}
+
+const VALID_CATEGORIES = ["News","Politics","Business","Sports","Entertainment","Lifestyle","Health","Culture","Events"];
+const NAV_ID_MAP = {Politics:"navPolitics", Business:"navBusiness", Sports:"navSports", Entertainment:"navEntertainment", Lifestyle:"navLifestyle", Health:"navHealth"};
+
+const CATEGORY_QUERY = '*[_type == "post" && category == $cat] | order(publishedAt desc){' +
+  'title, "slug": slug.current, category, excerpt, coverImage, author, publishedAt, readTime}';
+
+async function loadCategory(){
+  const params = new URLSearchParams(location.search);
+  const catRaw = params.get("cat") || "";
+  const cat = VALID_CATEGORIES.find(function(c){ return c.toLowerCase() === catRaw.toLowerCase(); });
+
+  if (!cat){
+    document.getElementById("catHeading").textContent = "Category not found";
+    document.getElementById("catName").textContent = "Not found";
+    document.getElementById("feedList").innerHTML =
+      '<div class="empty-state"><h2>We couldn\'t find that category</h2><p>Try one from the menu above, or head back to the homepage.</p><a href="index.html">Back to homepage →</a></div>';
+    return;
+  }
+
+  document.title = cat + " — Kumalo";
+  document.getElementById("pageTitle").textContent = cat + " — Kumalo";
+  document.getElementById("metaDescription").setAttribute("content", "Kumalo " + cat + " coverage — Ugandan news, updated daily.");
+  document.getElementById("catHeading").textContent = cat;
+  document.getElementById("catName").textContent = cat;
+  if (NAV_ID_MAP[cat]) document.getElementById(NAV_ID_MAP[cat]).setAttribute("aria-current", "page");
+
+  let posts;
+  try {
+    posts = await sanityFetch(CATEGORY_QUERY, {cat: cat});
+  } catch (e) {
+    console.error(e);
+    document.getElementById("feedList").innerHTML =
+      '<div class="empty-state"><h2>Unable to load stories right now</h2><p>Please refresh the page.</p></div>';
+    return;
+  }
+
+  if (!posts || posts.length === 0){
+    document.getElementById("catCount").textContent = "";
+    document.getElementById("feedList").innerHTML =
+      '<div class="empty-state"><h2>No ' + escapeHTML(cat) + ' stories yet</h2>' +
+      '<p>Check back soon — new stories go up regularly.</p>' +
+      '<a href="index.html">Back to homepage →</a></div>';
+    return;
+  }
+
+  document.getElementById("catCount").textContent = posts.length + (posts.length === 1 ? " story" : " stories");
+  document.getElementById("feedList").innerHTML = posts.map(renderRow).join("");
+}
+
+/* ============ AD ENGINE (unchanged pattern) ============ */
+const AD_CONFIG = {
+  adsenseClient: "",
+  slots: {
+    leaderboard: { mode: "auto", adsenseSlotId: "", format: "horizontal" },
+    footer:      { mode: "auto", adsenseSlotId: "", format: "horizontal" }
+  },
+  customAds: [],
+  houseAd: {
+    headline: "Advertise on Kumalo",
+    body: "Reach Ugandan readers across news, sports, business and entertainment — every day.",
+    cta: "Get the rate card",
+    url: "mailto:ads@kumalo.ug"
+  }
+};
+
+(function initAds(){
+  document.querySelectorAll("[data-ad-slot]").forEach(function(el){
+    const name = el.getAttribute("data-ad-slot");
+    const cfg  = AD_CONFIG.slots[name] || { mode: "auto" };
+    const frame = el.querySelector(".ad-frame") || el;
+    let mode = cfg.mode;
+    if (mode === "auto") {
+      if (AD_CONFIG.adsenseClient && cfg.adsenseSlotId) mode = "adsense";
+      else if (AD_CONFIG.customAds.length) mode = "custom";
+      else mode = "house";
+    }
+    if (mode === "adsense") renderAdsense(frame, cfg);
+    else if (mode === "custom" && AD_CONFIG.customAds.length) renderCustom(frame);
+    else renderHouse(frame);
+  });
+  function renderAdsense(frame, cfg){
+    frame.style.background = "transparent"; frame.style.border = "none";
+    frame.innerHTML = '<ins class="adsbygoogle" style="display:block;width:100%"' +
+      ' data-ad-client="' + AD_CONFIG.adsenseClient + '"' +
+      ' data-ad-slot="' + cfg.adsenseSlotId + '"' +
+      ' data-ad-format="' + (cfg.format || "auto") + '"' +
+      ' data-full-width-responsive="true"></ins>';
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
+  }
+  function renderCustom(frame){
+    const ad = AD_CONFIG.customAds[0];
+    frame.innerHTML =
+      '<a class="custom-ad" href="' + ad.url + '" target="_blank" rel="noopener sponsored">' +
+      '<div class="art" style="background:' + (ad.bg || "#101418") + '">' + (ad.art || "AD") + '</div>' +
+      '<div class="txt"><h4>' + ad.headline + '</h4><p>' + ad.body + '</p>' +
+      '<span class="cta">' + (ad.cta || "Learn more") + ' →</span></div></a>';
+  }
+  function renderHouse(frame){
+    frame.innerHTML = '<a class="house-ad" href="' + AD_CONFIG.houseAd.url + '">' +
+      '<h4>' + AD_CONFIG.houseAd.headline + '</h4><p>' + AD_CONFIG.houseAd.body + '</p>' +
+      '<span class="go">' + AD_CONFIG.houseAd.cta + ' →</span></a>';
+  }
+})();
+
+loadCategory();
+</script>
+</body>
+</html>
