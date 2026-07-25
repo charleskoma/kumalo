@@ -230,12 +230,8 @@ footer.site{border-top:1px solid var(--line);margin-top:56px;padding:40px 0 28px
     <span class="lbl">Trending</span>
     <div class="ticker">
       <div class="ticker-track" id="tickerTrack">
-        <div class="ticker-group">
-          <a href="post.html">Commuter rail opens Monday: routes &amp; fares</a><span class="sep">·</span>
-          <a href="#">Fuel prices ease for a third straight week</a><span class="sep">·</span>
-          <a href="#">League title race tightens with five rounds left</a><span class="sep">·</span>
-          <a href="#">Mosquito season came early — what clinics are seeing</a><span class="sep">·</span>
-          <a href="#">Keziah Mwima announces Lugogo show</a><span class="sep">·</span>
+        <div class="ticker-group" id="tickerGroupInner">
+          <span class="sep">Loading trending stories…</span>
         </div>
       </div>
     </div>
@@ -251,237 +247,74 @@ footer.site{border-top:1px solid var(--line);margin-top:56px;padding:40px 0 28px
     <div class="ad-frame"></div>
   </div>
 
-  <!-- ============ HERO (mixed sections) ============ -->
+  <!-- ============ HERO (populated from Sanity) ============ -->
   <section class="hero" aria-label="Top stories">
     <div class="hero-grid">
-      <article class="lead">
-        <a href="post.html">
-          <div class="thumb"><img src="https://picsum.photos/seed/kumalo-rail/1200/675" width="1200" height="675" alt="Commuter train at a city platform" loading="eager"></div>
-          <span class="kicker">News</span>
-          <h2>Kampala's commuter rail opens Monday: routes, fares and what changes for your commute</h2>
-          <p class="dek">Four stations, two peak-hour loops and a flat introductory fare — everything we know about the city's biggest transport shift in a decade.</p>
-          <div class="meta"><b>Gumkoma</b> · Jul 12, 2026 · 6 min read</div>
-        </a>
+      <article class="lead" id="heroLead">
+        <p class="meta" style="padding:40px 0">Loading latest stories…</p>
       </article>
-
-      <div class="hero-side">
-        <article class="item">
-          <a href="post.html" style="display:contents">
-            <div>
-              <span class="kicker">Politics</span>
-              <h3>Road fund debate: where the money would actually go, ward by ward</h3>
-              <div class="meta">Jul 12, 2026 · 4 min</div>
-            </div>
-            <div class="thumb"><img src="https://picsum.photos/seed/kumalo-roads/400/300" width="400" height="300" alt="Road construction works" loading="lazy"></div>
-          </a>
-        </article>
-        <article class="item">
-          <a href="post.html" style="display:contents">
-            <div>
-              <span class="kicker">Business</span>
-              <h3>Fuel prices ease for a third straight week — here's what's driving it</h3>
-              <div class="meta">Jul 11, 2026 · 3 min</div>
-            </div>
-            <div class="thumb"><img src="https://picsum.photos/seed/kumalo-fuel/400/300" width="400" height="300" alt="Fuel station at dusk" loading="lazy"></div>
-          </a>
-        </article>
-        <article class="item">
-          <a href="post.html" style="display:contents">
-            <div>
-              <span class="kicker">Sports</span>
-              <h3>Cranes camp: three uncapped names to watch ahead of the qualifiers</h3>
-              <div class="meta">Jul 11, 2026 · 4 min</div>
-            </div>
-            <div class="thumb"><img src="https://picsum.photos/seed/kumalo-cranes/400/300" width="400" height="300" alt="Footballers in training" loading="lazy"></div>
-          </a>
-        </article>
-      </div>
+      <div class="hero-side" id="heroSide"></div>
     </div>
   </section>
 
-  <!-- ============ LATEST (mixed) + SIDEBAR ============ -->
-  <div class="section-head">
-    <h2>Latest</h2>
-    <a class="more" href="#">View all</a>
-  </div>
+  <!-- ============ LATEST (populated from Sanity) + SIDEBAR ============ -->
+  <div id="latestSection" style="display:none">
+    <div class="section-head">
+      <h2>Latest</h2>
+      <a class="more" href="#">View all</a>
+    </div>
 
-  <div class="layout">
-    <section class="feed" aria-label="Latest stories">
-
-      <article class="row">
-        <a href="post.html" style="display:contents">
-          <div>
-            <span class="kicker">Health</span>
-            <h3>Mosquito season came early this year — what Kampala clinics are seeing</h3>
-            <p class="dek">Case numbers, the wards most affected, and the simple steps health workers want households to take now.</p>
-            <div class="meta">Jul 10, 2026 · 5 min</div>
+    <div class="layout">
+      <section class="feed" aria-label="Latest stories">
+        <div id="feedRowsBeforeAd"></div>
+        <div class="ad-row" id="feedAdRow" style="display:none">
+          <div class="ad-slot" data-ad-slot="infeed">
+            <div class="ad-label">Sponsored</div>
+            <div class="ad-frame" style="min-height:110px"></div>
           </div>
-          <div class="thumb"><img src="https://picsum.photos/seed/kumalo-health/500/320" width="500" height="320" alt="Health worker at a clinic" loading="lazy"></div>
-        </a>
-      </article>
-
-      <article class="row">
-        <a href="post.html" style="display:contents">
-          <div>
-            <span class="kicker">Entertainment</span>
-            <h3>Keziah Mwima is about to own Lugogo — here's how she got there</h3>
-            <p class="dek">From open-mic nights in Ntinda to the biggest solo booking of the year.</p>
-            <div class="meta">Jul 10, 2026 · 6 min</div>
-          </div>
-          <div class="thumb"><img src="https://picsum.photos/seed/kumalo-keziah/500/320" width="500" height="320" alt="Singer performing on stage" loading="lazy"></div>
-        </a>
-      </article>
-
-      <article class="row">
-        <a href="post.html" style="display:contents">
-          <div>
-            <span class="kicker">Lifestyle</span>
-            <h3>Renting in Kira vs Naalya: what UGX 800k actually gets you in 2026</h3>
-            <p class="dek">We toured twelve listings so you don't have to. The differences surprised us.</p>
-            <div class="meta">Jul 9, 2026 · 7 min</div>
-          </div>
-          <div class="thumb"><img src="https://picsum.photos/seed/kumalo-rent/500/320" width="500" height="320" alt="Residential houses in a suburb" loading="lazy"></div>
-        </a>
-      </article>
-
-      <!-- AD: in-feed -->
-      <div class="ad-row">
-        <div class="ad-slot" data-ad-slot="infeed">
-          <div class="ad-label">Sponsored</div>
-          <div class="ad-frame" style="min-height:110px"></div>
         </div>
-      </div>
+        <div id="feedRowsAfterAd"></div>
+      </section>
 
-      <article class="row">
-        <a href="post.html" style="display:contents">
-          <div>
-            <span class="kicker">Politics</span>
-            <h3>The wetland directive, explained: new rules for building near swamps</h3>
-            <p class="dek">Who it affects, what changes for pending approvals, and the penalties on the table.</p>
-            <div class="meta">Jul 9, 2026 · 6 min</div>
-          </div>
-          <div class="thumb"><img src="https://picsum.photos/seed/kumalo-wetland/500/320" width="500" height="320" alt="Wetland vegetation near a city" loading="lazy"></div>
-        </a>
-      </article>
+      <aside class="rail">
+        <div>
+          <h3 class="rail-title">More Stories</h3>
+          <ol class="trend-list" id="sidebarList"></ol>
+        </div>
 
-      <article class="row">
-        <a href="post.html" style="display:contents">
-          <div>
-            <span class="kicker">Sports</span>
-            <h3>Kampala City Marathon reveals a new route through the old taxi park</h3>
-            <p class="dek">Full course map, road closures and where to watch the elite field come through.</p>
-            <div class="meta">Jul 8, 2026 · 4 min</div>
-          </div>
-          <div class="thumb"><img src="https://picsum.photos/seed/kumalo-marathon/500/320" width="500" height="320" alt="Runners at a city marathon" loading="lazy"></div>
-        </a>
-      </article>
+        <!-- AD: sidebar MPU -->
+        <div class="ad-slot" data-ad-slot="sidebar" style="margin:0">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-frame mpu"></div>
+        </div>
 
-      <article class="row">
-        <a href="post.html" style="display:contents">
-          <div>
-            <span class="kicker">Culture</span>
-            <h3>The Ekyooto revival: storytelling nights are packing out city venues</h3>
-            <p class="dek">An old fireside tradition finds a new audience — and a new business model.</p>
-            <div class="meta">Jul 8, 2026 · 5 min</div>
-          </div>
-          <div class="thumb"><img src="https://picsum.photos/seed/kumalo-ekyooto/500/320" width="500" height="320" alt="Audience at an evening storytelling event" loading="lazy"></div>
-        </a>
-      </article>
-
-    </section>
-
-    <aside class="rail">
-
-      <div>
-        <h3 class="rail-title">Most read this week</h3>
-        <ol class="trend-list">
-          <li><span class="n">1</span><a href="post.html"><h4>Commuter rail opens Monday: routes, fares, times</h4><span>News · 6 min</span></a></li>
-          <li><span class="n">2</span><a href="#"><h4>Renting in Kira vs Naalya: what UGX 800k gets you</h4><span>Lifestyle · 7 min</span></a></li>
-          <li><span class="n">3</span><a href="#"><h4>League title race: the run-in fixtures that decide it</h4><span>Sports · 4 min</span></a></li>
-          <li><span class="n">4</span><a href="#"><h4>Keziah Mwima is about to own Lugogo</h4><span>Entertainment · 6 min</span></a></li>
-          <li><span class="n">5</span><a href="#"><h4>Mobile money fees: what the tariff review could change</h4><span>Business · 5 min</span></a></li>
-        </ol>
-      </div>
-
-      <!-- AD: sidebar MPU -->
-      <div class="ad-slot" data-ad-slot="sidebar" style="margin:0">
-        <div class="ad-label">Advertisement</div>
-        <div class="ad-frame mpu"></div>
-      </div>
-
-      <div class="newsletter">
-        <h3>The Kumalo Brief</h3>
-        <p>One email a day: the stories everyone will be talking about — news, sports, business and more.</p>
-        <input type="email" id="nlEmail" placeholder="you@example.com" aria-label="Email address" onkeydown="if(event.key==='Enter')joinNewsletter()">
-        <button onclick="joinNewsletter()">Subscribe — it's free</button>
-        <div class="ok" id="nlOk" role="status">You're in. See you tomorrow morning.</div>
-      </div>
-
-    </aside>
+        <div class="newsletter">
+          <h3>The Kumalo Brief</h3>
+          <p>One email a day: the stories everyone will be talking about — news, sports, business and more.</p>
+          <input type="email" id="nlEmail" placeholder="you@example.com" aria-label="Email address" onkeydown="if(event.key==='Enter')joinNewsletter()">
+          <button onclick="joinNewsletter()">Subscribe — it's free</button>
+          <div class="ok" id="nlOk" role="status">You're in. See you tomorrow morning.</div>
+        </div>
+      </aside>
+    </div>
   </div>
 
-  <!-- ============ SECTION BLOCKS ============ -->
+  <!-- ============ SECTION BLOCKS (populated from Sanity, hidden if empty) ============ -->
 
-  <div class="section-head">
-    <h2>Entertainment</h2>
-    <a class="more" href="#">More entertainment</a>
-  </div>
-  <div class="card-grid">
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-nyege/500/320" width="500" height="320" alt="Festival crowd at night" loading="lazy"></div>
-        <span class="kicker">Events</span>
-        <h3>Nyege Nyege 2026: five acts to catch before the crowds do</h3>
-        <div class="meta">Jul 11, 2026 · 4 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-film/500/320" width="500" height="320" alt="Film crew on location" loading="lazy"></div>
-        <span class="kicker">Film &amp; TV</span>
-        <h3>The Kampala series everyone's streaming — and the studio behind it</h3>
-        <div class="meta">Jul 10, 2026 · 5 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-bw/500/320" width="500" height="320" alt="Outdoor concert stage" loading="lazy"></div>
-        <span class="kicker">Events</span>
-        <h3>Blankets &amp; Wine returns with a two-day format — what to expect</h3>
-        <div class="meta">Jul 9, 2026 · 3 min</div>
-      </a>
-    </article>
+  <div id="entertainmentSection" style="display:none">
+    <div class="section-head">
+      <h2>Entertainment</h2>
+      <a class="more" href="#">More entertainment</a>
+    </div>
+    <div class="card-grid" id="entertainmentCards"></div>
   </div>
 
-  <div class="section-head">
-    <h2>Sports</h2>
-    <a class="more" href="#">More sports</a>
-  </div>
-  <div class="card-grid">
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-netball/500/320" width="500" height="320" alt="Netball match in progress" loading="lazy"></div>
-        <span class="kicker">Netball</span>
-        <h3>She Cranes' climb continues after a clean tri-series sweep</h3>
-        <div class="meta">Jul 11, 2026 · 3 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-league/500/320" width="500" height="320" alt="Football stadium under floodlights" loading="lazy"></div>
-        <span class="kicker">Football</span>
-        <h3>Title race: the five run-in fixtures that will decide the league</h3>
-        <div class="meta">Jul 10, 2026 · 4 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-boxing/500/320" width="500" height="320" alt="Boxer training in a gym" loading="lazy"></div>
-        <span class="kicker">Boxing</span>
-        <h3>Fight night returns to Lugogo Arena — the full card, ranked</h3>
-        <div class="meta">Jul 9, 2026 · 4 min</div>
-      </a>
-    </article>
+  <div id="sportsSection" style="display:none">
+    <div class="section-head">
+      <h2>Sports</h2>
+      <a class="more" href="#">More sports</a>
+    </div>
+    <div class="card-grid" id="sportsCards"></div>
   </div>
 
   <!-- AD: mid-page billboard -->
@@ -490,66 +323,20 @@ footer.site{border-top:1px solid var(--line);margin-top:56px;padding:40px 0 28px
     <div class="ad-frame"></div>
   </div>
 
-  <div class="section-head">
-    <h2>Politics &amp; Business</h2>
-    <a class="more" href="#">More politics &amp; business</a>
-  </div>
-  <div class="card-grid">
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-budget/500/320" width="500" height="320" alt="Documents and calculator on a desk" loading="lazy"></div>
-        <span class="kicker">Explainer</span>
-        <h3>How the proposed road fund would be shared — in plain language</h3>
-        <div class="meta">Jul 11, 2026 · 6 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-trade/500/320" width="500" height="320" alt="Cargo trucks at a border crossing" loading="lazy"></div>
-        <span class="kicker">Trade</span>
-        <h3>EAC trade talks: what's on Uganda's wish list this round</h3>
-        <div class="meta">Jul 10, 2026 · 5 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-momo/500/320" width="500" height="320" alt="Person using a phone for mobile payments" loading="lazy"></div>
-        <span class="kicker">Business</span>
-        <h3>Mobile money fees: what the new tariff review could change for you</h3>
-        <div class="meta">Jul 9, 2026 · 5 min</div>
-      </a>
-    </article>
+  <div id="politicsBusinessSection" style="display:none">
+    <div class="section-head">
+      <h2>Politics &amp; Business</h2>
+      <a class="more" href="#">More politics &amp; business</a>
+    </div>
+    <div class="card-grid" id="politicsBusinessCards"></div>
   </div>
 
-  <div class="section-head">
-    <h2>Lifestyle &amp; Health</h2>
-    <a class="more" href="#">More lifestyle &amp; health</a>
-  </div>
-  <div class="card-grid">
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-rolex/500/320" width="500" height="320" alt="Street food being prepared" loading="lazy"></div>
-        <span class="kicker">Food</span>
-        <h3>Where to eat the best rolex in Kampala — ranked by neighbourhood</h3>
-        <div class="meta">Jul 11, 2026 · 6 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-jinja/500/320" width="500" height="320" alt="River scenery at Jinja" loading="lazy"></div>
-        <span class="kicker">Travel</span>
-        <h3>A weekend in Jinja for under UGX 300k — the full itinerary</h3>
-        <div class="meta">Jul 10, 2026 · 5 min</div>
-      </a>
-    </article>
-    <article class="card">
-      <a href="post.html">
-        <div class="thumb"><img src="https://picsum.photos/seed/kumalo-clinic/500/320" width="500" height="320" alt="Waiting area at a health centre" loading="lazy"></div>
-        <span class="kicker">Health</span>
-        <h3>Clinic queues, sorted: how e-booking is changing city health centres</h3>
-        <div class="meta">Jul 9, 2026 · 4 min</div>
-      </a>
-    </article>
+  <div id="lifestyleHealthSection" style="display:none">
+    <div class="section-head">
+      <h2>Lifestyle &amp; Health</h2>
+      <a class="more" href="#">More lifestyle &amp; health</a>
+    </div>
+    <div class="card-grid" id="lifestyleHealthCards"></div>
   </div>
 
   <!-- AD: footer billboard -->
@@ -590,7 +377,219 @@ footer.site{border-top:1px solid var(--line);margin-top:56px;padding:40px 0 28px
 
 <script>
 /* ============================================================
-   KUMALO AD ENGINE
+   SANITY CONNECTION
+   Public dataset — no token needed to read published posts.
+============================================================ */
+const SANITY_PROJECT_ID = "y0yye7lu";
+const SANITY_DATASET = "production";
+const SANITY_API_VERSION = "v2024-01-01";
+
+function sanityQueryUrl(query, params){
+  const base = "https://" + SANITY_PROJECT_ID + ".api.sanity.io/" + SANITY_API_VERSION + "/data/query/" + SANITY_DATASET;
+  const usp = new URLSearchParams();
+  usp.set("query", query);
+  if (params){
+    Object.keys(params).forEach(function(k){ usp.set("$" + k, JSON.stringify(params[k])); });
+  }
+  return base + "?" + usp.toString();
+}
+
+async function sanityFetch(query, params){
+  const res = await fetch(sanityQueryUrl(query, params));
+  if (!res.ok) throw new Error("Sanity request failed: " + res.status);
+  const json = await res.json();
+  return json.result;
+}
+
+function urlForImage(source, width){
+  if (!source || !source.asset || !source.asset._ref) return "";
+  const parts = source.asset._ref.split("-"); // ["image", id, "WxH", format]
+  const id = parts[1], dims = parts[2], format = parts[3];
+  let url = "https://cdn.sanity.io/images/" + SANITY_PROJECT_ID + "/" + SANITY_DATASET + "/" + id + "-" + dims + "." + format;
+  if (width) url += "?w=" + width + "&auto=format";
+  return url;
+}
+
+function escapeHTML(str){
+  const div = document.createElement("div");
+  div.textContent = str == null ? "" : String(str);
+  return div.innerHTML;
+}
+
+function formatDate(iso){
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"});
+}
+
+function postUrl(slug){
+  return "post.html?slug=" + encodeURIComponent(slug);
+}
+
+function metaLine(post){
+  return formatDate(post.publishedAt) + (post.readTime ? " · " + post.readTime + " min" : "");
+}
+
+/* ============ CARD RENDERERS ============ */
+function renderHeroLead(post){
+  const img = urlForImage(post.coverImage, 1200);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<a href="' + postUrl(post.slug) + '">' +
+    '<div class="thumb"><img src="' + img + '" width="1200" height="675" alt="' + alt + '" loading="eager"></div>' +
+    '<span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h2>' + escapeHTML(post.title) + '</h2>' +
+    '<p class="dek">' + escapeHTML(post.excerpt) + '</p>' +
+    '<div class="meta"><b>' + escapeHTML(post.author || "Kumalo") + '</b> · ' + metaLine(post) + '</div>' +
+    '</a>';
+}
+
+function renderHeroSideItem(post){
+  const img = urlForImage(post.coverImage, 400);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<article class="item"><a href="' + postUrl(post.slug) + '" style="display:contents">' +
+    '<div><span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h3>' + escapeHTML(post.title) + '</h3>' +
+    '<div class="meta">' + metaLine(post) + '</div></div>' +
+    '<div class="thumb"><img src="' + img + '" width="400" height="300" alt="' + alt + '" loading="lazy"></div>' +
+    '</a></article>';
+}
+
+function renderFeedRow(post){
+  const img = urlForImage(post.coverImage, 500);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<article class="row"><a href="' + postUrl(post.slug) + '" style="display:contents">' +
+    '<div><span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h3>' + escapeHTML(post.title) + '</h3>' +
+    '<p class="dek">' + escapeHTML(post.excerpt) + '</p>' +
+    '<div class="meta">' + metaLine(post) + '</div></div>' +
+    '<div class="thumb"><img src="' + img + '" width="500" height="320" alt="' + alt + '" loading="lazy"></div>' +
+    '</a></article>';
+}
+
+function renderSectionCard(post){
+  const img = urlForImage(post.coverImage, 500);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<article class="card"><a href="' + postUrl(post.slug) + '">' +
+    '<div class="thumb"><img src="' + img + '" width="500" height="320" alt="' + alt + '" loading="lazy"></div>' +
+    '<span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h3>' + escapeHTML(post.title) + '</h3>' +
+    '<div class="meta">' + metaLine(post) + '</div>' +
+    '</a></article>';
+}
+
+function renderSidebarItem(post, rank){
+  return '<li><span class="n">' + rank + '</span><a href="' + postUrl(post.slug) + '">' +
+    '<h4>' + escapeHTML(post.title) + '</h4><span>' + escapeHTML(post.category) +
+    (post.readTime ? " · " + post.readTime + " min" : "") + '</span></a></li>';
+}
+
+function renderTickerItem(post){
+  return '<a href="' + postUrl(post.slug) + '">' + escapeHTML(post.title) + '</a><span class="sep">·</span>';
+}
+
+/* ============ SECTION HELPERS ============ */
+function showSection(id, gridId, items){
+  const section = document.getElementById(id);
+  if (!items.length){ section.style.display = "none"; return; }
+  document.getElementById(gridId).innerHTML = items.map(renderSectionCard).join("");
+  section.style.display = "";
+}
+
+function setupTickerLoop(){
+  const track = document.getElementById("tickerTrack");
+  if (!track) return;
+  const extraGroups = track.querySelectorAll(".ticker-group:not(#tickerGroupInner)");
+  extraGroups.forEach(function(g){ g.remove(); });
+  const group = document.getElementById("tickerGroupInner");
+  if (!group) return;
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) return;
+  const clone = group.cloneNode(true);
+  clone.removeAttribute("id");
+  clone.setAttribute("aria-hidden", "true");
+  track.appendChild(clone);
+  const setDur = function(){
+    const w = group.scrollWidth || 0;
+    if (w > 0) track.style.setProperty("--dur", Math.max(18, Math.round(w / 60)) + "s");
+  };
+  if (window.requestAnimationFrame) requestAnimationFrame(setDur); else setTimeout(setDur, 50);
+}
+
+/* ============ MAIN LOAD ============ */
+const HOME_QUERY = '*[_type == "post" && defined(slug.current)] | order(publishedAt desc){' +
+  'title, "slug": slug.current, category, excerpt, coverImage, author, publishedAt, readTime}';
+
+async function loadHomepage(){
+  let posts;
+  try {
+    posts = await sanityFetch(HOME_QUERY);
+  } catch (e) {
+    console.error(e);
+    document.getElementById("heroLead").innerHTML =
+      '<p class="meta" style="padding:40px 0">Unable to load posts right now — please refresh.</p>';
+    return;
+  }
+
+  if (!posts || posts.length === 0){
+    document.getElementById("heroLead").innerHTML =
+      '<p class="meta" style="padding:40px 0">No posts published yet — check back soon.</p>';
+    document.getElementById("heroSide").style.display = "none";
+    document.getElementById("latestSection").style.display = "none";
+    ["entertainmentSection","sportsSection","politicsBusinessSection","lifestyleHealthSection"].forEach(function(id){
+      document.getElementById(id).style.display = "none";
+    });
+    document.getElementById("tickerGroupInner").innerHTML = '<span class="sep">No stories yet</span>';
+    setupTickerLoop();
+    return;
+  }
+
+  // Hero: most recent post as lead, next 2 as side items
+  document.getElementById("heroLead").innerHTML = renderHeroLead(posts[0]);
+  const sideItems = posts.slice(1, 3);
+  const heroSideEl = document.getElementById("heroSide");
+  if (sideItems.length){
+    heroSideEl.innerHTML = sideItems.map(renderHeroSideItem).join("");
+    heroSideEl.style.display = "";
+  } else {
+    heroSideEl.style.display = "none";
+  }
+
+  // Latest feed: everything after what the hero used
+  const feedPosts = posts.slice(3);
+  const latestSection = document.getElementById("latestSection");
+  if (feedPosts.length === 0){
+    latestSection.style.display = "none";
+  } else {
+    latestSection.style.display = "";
+    const before = feedPosts.slice(0, 3), after = feedPosts.slice(3);
+    document.getElementById("feedRowsBeforeAd").innerHTML = before.map(renderFeedRow).join("");
+    document.getElementById("feedRowsAfterAd").innerHTML = after.map(renderFeedRow).join("");
+    document.getElementById("feedAdRow").style.display = "";
+  }
+
+  // Sidebar "More Stories": most recent 5 overall (can overlap with hero/feed — normal for news sites)
+  const sidebarPosts = posts.slice(0, 5);
+  document.getElementById("sidebarList").innerHTML =
+    sidebarPosts.map(function(p, i){ return renderSidebarItem(p, i + 1); }).join("");
+
+  // Trending ticker: same recent-5 pool
+  document.getElementById("tickerGroupInner").innerHTML = sidebarPosts.map(renderTickerItem).join("");
+  setupTickerLoop();
+
+  // Category section blocks — hidden automatically if no matching posts yet
+  showSection("entertainmentSection", "entertainmentCards",
+    posts.filter(function(p){ return p.category === "Entertainment"; }).slice(0, 3));
+  showSection("sportsSection", "sportsCards",
+    posts.filter(function(p){ return p.category === "Sports"; }).slice(0, 3));
+  showSection("politicsBusinessSection", "politicsBusinessCards",
+    posts.filter(function(p){ return p.category === "Politics" || p.category === "Business"; }).slice(0, 3));
+  showSection("lifestyleHealthSection", "lifestyleHealthCards",
+    posts.filter(function(p){ return p.category === "Lifestyle" || p.category === "Health"; }).slice(0, 3));
+}
+
+/* ============================================================
+   KUMALO AD ENGINE (unchanged)
    Every element with data-ad-slot="name" is an ad placement.
    Modes per slot:
      "adsense" — Google AdSense unit (needs client + slot IDs)
@@ -697,24 +696,7 @@ function joinNewsletter(){
   }
 }
 
-/* Rolling trending ticker: clone the group so the -50% loop is seamless,
-   and set duration from content width so speed stays constant (~60px/s). */
-(function(){
-  const track = document.getElementById("tickerTrack");
-  if (!track) return;
-  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduced) return;
-  const group = track.querySelector(".ticker-group");
-  if (!group) return;
-  const clone = group.cloneNode(true);
-  clone.setAttribute("aria-hidden", "true");
-  track.appendChild(clone);
-  const setDur = function(){
-    const w = group.scrollWidth || 0;
-    if (w > 0) track.style.setProperty("--dur", Math.max(18, Math.round(w / 60)) + "s");
-  };
-  if (window.requestAnimationFrame) requestAnimationFrame(setDur); else setTimeout(setDur, 50);
-})();
+loadHomepage();
 </script>
 </body>
 </html>
