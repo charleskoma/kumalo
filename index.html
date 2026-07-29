@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kumalo — News, Politics, Business, Sports, Entertainment & More</title>
+<meta name="description" content="Kumalo covers everything trending in Uganda — news, politics, business, sports, entertainment, lifestyle, health and culture. Fresh from Kampala, daily.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kumalo — News, Politics, Business, Sports, Entertainment & More">
+<meta property="og:description" content="Everything trending in Uganda — news, politics, business, sports, entertainment, lifestyle, health and culture.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101418'/%3E%3Ctext x='32' y='46' font-family='Arial,sans-serif' font-size='36' font-weight='800' text-anchor='middle' fill='%23FFFFFF'%3EK%3C/text%3E%3C/svg%3E">
+
+<!-- ============================================================
+     GOOGLE ANALYTICS (GA4) — STEP 1 of 1
+     Free at analytics.google.com → Admin → Data Streams → Web.
+     Replace G-XXXXXXXXXX (both places below) with your real
+     Measurement ID, then this page starts reporting immediately.
+============================================================ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- ============================================================
+     VERCEL WEB ANALYTICS — free, built into your Vercel project.
+     Click "Enable" once under your project's Analytics tab in
+     the Vercel dashboard, then this script starts working.
+============================================================ -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- ============================================================
+     GOOGLE ADSENSE — STEP 1 of 2
+     After approval: paste your publisher ID below AND in
+     AD_CONFIG.adsenseClient (bottom of this file), then
+     uncomment this tag.
+============================================================ -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2663538820791254" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#FFFFFF;
+  --surface:#F6F7F8;
+  --ink:#101418;
+  --muted:#5F6672;
+  --line:#E8EAED;
+  --accent:#E03E2D;
+  --max:1200px;
+  --r-sm:10px; --r-md:14px; --r-lg:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:8px 16px;border-radius:0 0 10px 0;font-size:14px;font-weight:600;z-index:200}
+.skip:focus{left:0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+.kicker{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.meta{font-size:13px;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:600}
+
+/* ============ HEADER ============ */
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.logo{font-size:22px;font-weight:800;letter-spacing:-.03em}
+.logo span{color:var(--accent)}
+nav.main{display:flex;gap:2px;margin-left:auto}
+nav.main a{font-size:14px;font-weight:500;color:var(--muted);padding:8px 11px;border-radius:8px;transition:color .15s,background .15s;white-space:nowrap}
+nav.main a:hover{color:var(--ink);background:var(--surface)}
+nav.main a[aria-current]{color:var(--ink);font-weight:600}
+.subscribe-btn{background:var(--ink);color:#fff;border:none;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:999px;transition:opacity .15s;white-space:nowrap}
+.subscribe-btn:hover{opacity:.85}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:38px;font-size:17px;margin-left:auto}
+nav.main.open{display:flex;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;gap:2px;padding:12px 24px 16px;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(16,20,24,.06)}
+nav.main.open a{padding:12px}
+
+/* ============ TRENDING TICKER (rolling) ============ */
+.trending{border-bottom:1px solid var(--line);background:var(--bg)}
+.trending .wrap{display:flex;align-items:center;gap:16px;height:44px}
+.trending .lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap;flex:none;display:flex;align-items:center;gap:6px}
+.trending .lbl::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.ticker{flex:1;min-width:0;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:28px;z-index:1;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.ticker-track{display:flex;width:max-content;animation:ticker-roll var(--dur,40s) linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-group{display:flex;gap:36px;align-items:center;white-space:nowrap;padding-right:36px}
+.trending a{font-size:13.5px;font-weight:500;color:var(--muted);transition:color .15s}
+.trending a:hover{color:var(--ink)}
+.trending .sep{color:#D3D7DC;flex:none}
+@keyframes ticker-roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{animation:none}
+  .ticker{overflow-x:auto;scrollbar-width:none}
+  .ticker::-webkit-scrollbar{display:none}
+}
+
+/* ============ AD SLOTS ============ */
+.ad-slot{margin:28px auto;text-align:center}
+.ad-slot .ad-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9AA1AB;margin-bottom:8px}
+.ad-frame{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);min-height:96px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ad-frame.mpu{min-height:250px;max-width:336px;margin:0 auto}
+.house-ad{display:block;padding:26px 22px;width:100%}
+.house-ad h4{font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
+.house-ad p{font-size:13.5px;color:var(--muted);max-width:440px;margin:0 auto}
+.house-ad .go{color:var(--accent);font-weight:600;font-size:13.5px}
+.custom-ad{display:flex;align-items:stretch;width:100%;text-align:left;background:var(--bg)}
+.custom-ad .art{width:150px;flex:none;background-size:cover;background-position:center;border-radius:var(--r-sm);margin:12px 0 12px 12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px}
+.custom-ad .txt{padding:16px 18px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.custom-ad .txt h4{font-size:15.5px;font-weight:700;margin-bottom:3px}
+.custom-ad .txt p{font-size:13px;color:var(--muted);margin-bottom:8px}
+.custom-ad .cta{align-self:flex-start;font-size:12.5px;font-weight:600;color:var(--accent)}
+.custom-ad.stack{flex-direction:column;max-width:336px;margin:0 auto}
+.custom-ad.stack .art{width:auto;height:150px;margin:12px 12px 0}
+
+/* ============ HERO ============ */
+.hero{padding:36px 0 8px}
+.hero-grid{display:grid;grid-template-columns:7fr 5fr;gap:40px}
+.thumb{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--surface);aspect-ratio:16/9}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+a:hover .thumb img{transform:scale(1.03)}
+.lead .kicker{margin:16px 0 8px}
+.lead h2{font-size:clamp(26px,3.2vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1.15;transition:color .15s}
+.lead a:hover h2{color:var(--accent)}
+.lead .dek{font-size:16.5px;color:var(--muted);margin:10px 0 12px;line-height:1.55}
+.hero-side{display:flex;flex-direction:column}
+.hero-side .item{display:grid;grid-template-columns:1fr 132px;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.hero-side .item:first-child{padding-top:4px}
+.hero-side .item:last-child{border-bottom:none}
+.hero-side .thumb{aspect-ratio:4/3;border-radius:var(--r-sm)}
+.hero-side h3{font-size:17px;font-weight:700;letter-spacing:-.015em;line-height:1.35;margin:4px 0 8px;transition:color .15s}
+.hero-side a:hover h3{color:var(--accent)}
+
+/* ============ SECTION HEAD ============ */
+.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;margin:44px 0 4px}
+.section-head h2{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.section-head .more{font-size:13.5px;font-weight:600;color:var(--muted);transition:color .15s}
+.section-head .more:hover{color:var(--accent)}
+
+/* ============ LATEST (list rows) + SIDEBAR ============ */
+.layout{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start}
+.layout.single-col{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+.feed .row{display:grid;grid-template-columns:1fr 200px;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.feed .row:last-of-type{border-bottom:none}
+.feed .thumb{aspect-ratio:16/10;border-radius:var(--r-sm)}
+.feed h3{font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.35;margin:4px 0 6px;transition:color .15s}
+.feed a:hover h3{color:var(--accent)}
+.feed .dek{font-size:14.5px;color:var(--muted);margin-bottom:8px;line-height:1.55}
+.feed .ad-row{padding:8px 0;border-bottom:1px solid var(--line)}
+.feed .ad-row .ad-slot{margin:16px auto}
+
+aside.rail{position:sticky;top:88px;display:flex;flex-direction:column;gap:32px}
+.rail h3.rail-title{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.trend-list{list-style:none}
+.trend-list li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.trend-list li:last-child{border-bottom:none}
+.trend-list .n{font-size:20px;font-weight:800;color:#C9CDD3;line-height:1.3;flex:none;width:22px}
+.trend-list h4{font-size:14.5px;font-weight:600;line-height:1.4;transition:color .15s}
+.trend-list a:hover h4{color:var(--accent)}
+.trend-list span{font-size:12px;color:var(--muted)}
+
+.newsletter{background:var(--surface);border-radius:var(--r-lg);padding:22px}
+.newsletter h3{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+.newsletter p{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.newsletter input{width:100%;border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 14px;font:inherit;font-size:14px;background:var(--bg)}
+.newsletter input:focus{outline:none;border-color:var(--ink)}
+.newsletter button{width:100%;margin-top:10px;background:var(--ink);color:#fff;border:none;border-radius:var(--r-sm);padding:11px;font-size:14px;font-weight:600;transition:opacity .15s}
+.newsletter button:hover{opacity:.85}
+.newsletter .ok{display:none;font-size:13.5px;font-weight:600;color:#1E7A46;margin-top:10px}
+
+/* ============ SECTION BLOCKS (Sports / Politics / etc.) ============ */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:24px 0 4px}
+.card .thumb{aspect-ratio:16/10;border-radius:var(--r-sm);margin-bottom:12px}
+.card h3{font-size:16.5px;font-weight:700;letter-spacing:-.01em;line-height:1.4;margin:6px 0;transition:color .15s}
+.card a:hover h3{color:var(--accent)}
+
+/* ============ FOOTER ============ */
+footer.site{border-top:1px solid var(--line);margin-top:56px;padding:40px 0 28px}
+.foot-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:28px}
+.foot-top p{font-size:13.5px;color:var(--muted);max-width:340px;margin-top:8px}
+.foot-links{display:flex;gap:4px;flex-wrap:wrap;max-width:560px;justify-content:flex-end}
+.foot-links a{font-size:13.5px;font-weight:500;color:var(--muted);padding:6px 12px;border-radius:8px;transition:color .15s,background .15s}
+.foot-links a:hover{color:var(--ink);background:var(--surface)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.foot-bottom a{font-weight:500}
+.foot-bottom a:hover{color:var(--accent)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px){
+  .layout{grid-template-columns:1fr}
+  aside.rail{position:static}
+  .hero-grid{grid-template-columns:1fr;gap:8px}
+  .hero-side .item:first-child{padding-top:18px}
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:920px){
+  nav.main{display:none}
+  .menu-btn{display:block}
+}
+@media (max-width:720px){
+  .subscribe-btn{display:none}
+  .feed .row{grid-template-columns:1fr 120px;gap:16px}
+  .feed .thumb{aspect-ratio:1/1}
+  .feed .dek{display:none}
+  .hero-side .item{grid-template-columns:1fr 108px}
+  .card-grid{grid-template-columns:1fr;gap:22px}
+  .foot-links{justify-content:flex-start}
+  .wrap{padding:0 18px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Kumalo home">Kumalo<span>.</span></a>
+    <nav class="main" id="mainNav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="category.html?cat=Politics">Politics</a>
+      <a href="category.html?cat=Business">Business</a>
+      <a href="category.html?cat=Sports">Sports</a>
+      <a href="category.html?cat=Entertainment">Entertainment</a>
+      <a href="category.html?cat=Lifestyle">Lifestyle</a>
+      <a href="category.html?cat=Health">Health</a>
+    </nav>
+    <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('mainNav').classList.toggle('open')">☰</button>
+    <button class="subscribe-btn" onclick="document.getElementById('nlEmail').focus();document.getElementById('nlEmail').scrollIntoView({block:'center'})">Subscribe</button>
+  </div>
+</header>
+
+<div class="trending" aria-label="Trending stories">
+  <div class="wrap">
+    <span class="lbl">Trending</span>
+    <div class="ticker">
+      <div class="ticker-track" id="tickerTrack">
+        <div class="ticker-group" id="tickerGroupInner">
+          <span class="sep">Loading trending stories…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+  <h1 class="sr-only">Kumalo — Ugandan news: politics, business, sports, entertainment, lifestyle, health and culture</h1>
+
+  <!-- AD: leaderboard -->
+  <div class="ad-slot" data-ad-slot="leaderboard">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-frame"></div>
+  </div>
+
+  <!-- ============ HERO (populated from Sanity) ============ -->
+  <section class="hero" aria-label="Top stories">
+    <div class="hero-grid">
+      <article class="lead" id="heroLead">
+        <p class="meta" style="padding:40px 0">Loading latest stories…</p>
+      </article>
+      <div class="hero-side" id="heroSide"></div>
+    </div>
+  </section>
+
+  <!-- ============ LATEST (populated from Sanity) + SIDEBAR ============ -->
+  <div class="section-head" id="latestHeading" style="display:none">
+    <h2>Latest</h2>
+    <a class="more" href="index.html#latestHeading">View all</a>
+  </div>
+
+  <div class="layout" id="latestLayout">
+    <section class="feed" aria-label="Latest stories" id="feedSection" style="display:none">
+      <div id="feedRowsBeforeAd"></div>
+      <div class="ad-row" id="feedAdRow" style="display:none">
+        <div class="ad-slot" data-ad-slot="infeed">
+          <div class="ad-label">Sponsored</div>
+          <div class="ad-frame" style="min-height:110px"></div>
+        </div>
+      </div>
+      <div id="feedRowsAfterAd"></div>
+    </section>
+
+    <aside class="rail">
+      <div>
+        <h3 class="rail-title">More Stories</h3>
+        <ol class="trend-list" id="sidebarList"></ol>
+      </div>
+
+      <!-- AD: sidebar MPU -->
+      <div class="ad-slot" data-ad-slot="sidebar" style="margin:0">
+        <div class="ad-label">Advertisement</div>
+        <div class="ad-frame mpu"></div>
+      </div>
+
+      <div class="newsletter">
+        <h3>The Kumalo Brief</h3>
+        <p>One email a day: the stories everyone will be talking about — news, sports, business and more.</p>
+        <input type="email" id="nlEmail" placeholder="you@example.com" aria-label="Email address" onkeydown="if(event.key==='Enter')joinNewsletter()">
+        <button onclick="joinNewsletter()">Subscribe — it's free</button>
+        <div class="ok" id="nlOk" role="status">You're in. See you tomorrow morning.</div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ SECTION BLOCKS (populated from Sanity, hidden if empty) ============ -->
+
+  <div id="entertainmentSection" style="display:none">
+    <div class="section-head">
+      <h2>Entertainment</h2>
+      <a class="more" href="category.html?cat=Entertainment">More entertainment</a>
+    </div>
+    <div class="card-grid" id="entertainmentCards"></div>
+  </div>
+
+  <div id="sportsSection" style="display:none">
+    <div class="section-head">
+      <h2>Sports</h2>
+      <a class="more" href="category.html?cat=Sports">More sports</a>
+    </div>
+    <div class="card-grid" id="sportsCards"></div>
+  </div>
+
+  <!-- AD: mid-page billboard -->
+  <div class="ad-slot" data-ad-slot="midpage">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-frame"></div>
+  </div>
+
+  <div id="politicsBusinessSection" style="display:none">
+    <div class="section-head">
+      <h2>Politics &amp; Business</h2>
+      <a class="more" href="category.html?cat=Politics">More politics &amp; business</a>
+    </div>
+    <div class="card-grid" id="politicsBusinessCards"></div>
+  </div>
+
+  <div id="lifestyleHealthSection" style="display:none">
+    <div class="section-head">
+      <h2>Lifestyle &amp; Health</h2>
+      <a class="more" href="category.html?cat=Lifestyle">More lifestyle &amp; health</a>
+    </div>
+    <div class="card-grid" id="lifestyleHealthCards"></div>
+  </div>
+
+  <!-- AD: footer billboard -->
+  <div class="ad-slot" data-ad-slot="footer">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-frame"></div>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="logo" href="index.html">Kumalo<span>.</span></a>
+        <p>Independent coverage of everything trending in Uganda — news, politics, business, sports, entertainment, lifestyle, health and culture. Written in Kampala, read everywhere.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="category.html?cat=Politics">Politics</a>
+        <a href="category.html?cat=Business">Business</a>
+        <a href="category.html?cat=Sports">Sports</a>
+        <a href="category.html?cat=Entertainment">Entertainment</a>
+        <a href="category.html?cat=Lifestyle">Lifestyle</a>
+        <a href="category.html?cat=Health">Health</a>
+        <a href="category.html?cat=Culture">Culture</a>
+        <a href="category.html?cat=Events">Events</a>
+        <a href="about.html">About</a>
+        <a href="about.html#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Kumalo · Made in Kampala</span>
+      <a href="mailto:ads@kumalo.biz">Advertise with us → ads@kumalo.biz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   SANITY CONNECTION
+   Public dataset — no token needed to read published posts.
+============================================================ */
+const SANITY_PROJECT_ID = "y0yye7lu";
+const SANITY_DATASET = "production";
+const SANITY_API_VERSION = "v2024-01-01";
+
+function sanityQueryUrl(query, params){
+  const base = "https://" + SANITY_PROJECT_ID + ".api.sanity.io/" + SANITY_API_VERSION + "/data/query/" + SANITY_DATASET;
+  const usp = new URLSearchParams();
+  usp.set("query", query);
+  if (params){
+    Object.keys(params).forEach(function(k){ usp.set("$" + k, JSON.stringify(params[k])); });
+  }
+  return base + "?" + usp.toString();
+}
+
+async function sanityFetch(query, params){
+  const res = await fetch(sanityQueryUrl(query, params));
+  if (!res.ok) throw new Error("Sanity request failed: " + res.status);
+  const json = await res.json();
+  return json.result;
+}
+
+function urlForImage(source, width){
+  if (!source || !source.asset || !source.asset._ref) return "";
+  const parts = source.asset._ref.split("-"); // ["image", id, "WxH", format]
+  const id = parts[1], dims = parts[2], format = parts[3];
+  let url = "https://cdn.sanity.io/images/" + SANITY_PROJECT_ID + "/" + SANITY_DATASET + "/" + id + "-" + dims + "." + format;
+  if (width) url += "?w=" + width + "&auto=format";
+  return url;
+}
+
+function escapeHTML(str){
+  const div = document.createElement("div");
+  div.textContent = str == null ? "" : String(str);
+  return div.innerHTML;
+}
+
+function formatDate(iso){
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"});
+}
+
+function postUrl(slug){
+  return "post.html?slug=" + encodeURIComponent(slug);
+}
+
+function metaLine(post){
+  return formatDate(post.publishedAt) + (post.readTime ? " · " + post.readTime + " min" : "");
+}
+
+/* ============ CARD RENDERERS ============ */
+function renderHeroLead(post){
+  const img = urlForImage(post.coverImage, 1200);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<a href="' + postUrl(post.slug) + '">' +
+    '<div class="thumb"><img src="' + img + '" width="1200" height="675" alt="' + alt + '" loading="eager"></div>' +
+    '<span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h2>' + escapeHTML(post.title) + '</h2>' +
+    '<p class="dek">' + escapeHTML(post.excerpt) + '</p>' +
+    '<div class="meta"><b>' + escapeHTML(post.author || "Kumalo") + '</b> · ' + metaLine(post) + '</div>' +
+    '</a>';
+}
+
+function renderHeroSideItem(post){
+  const img = urlForImage(post.coverImage, 400);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<article class="item"><a href="' + postUrl(post.slug) + '" style="display:contents">' +
+    '<div><span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h3>' + escapeHTML(post.title) + '</h3>' +
+    '<div class="meta">' + metaLine(post) + '</div></div>' +
+    '<div class="thumb"><img src="' + img + '" width="400" height="300" alt="' + alt + '" loading="lazy"></div>' +
+    '</a></article>';
+}
+
+function renderFeedRow(post){
+  const img = urlForImage(post.coverImage, 500);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<article class="row"><a href="' + postUrl(post.slug) + '" style="display:contents">' +
+    '<div><span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h3>' + escapeHTML(post.title) + '</h3>' +
+    '<p class="dek">' + escapeHTML(post.excerpt) + '</p>' +
+    '<div class="meta">' + metaLine(post) + '</div></div>' +
+    '<div class="thumb"><img src="' + img + '" width="500" height="320" alt="' + alt + '" loading="lazy"></div>' +
+    '</a></article>';
+}
+
+function renderSectionCard(post){
+  const img = urlForImage(post.coverImage, 500);
+  const alt = escapeHTML((post.coverImage && post.coverImage.alt) || post.title);
+  return '<article class="card"><a href="' + postUrl(post.slug) + '">' +
+    '<div class="thumb"><img src="' + img + '" width="500" height="320" alt="' + alt + '" loading="lazy"></div>' +
+    '<span class="kicker">' + escapeHTML(post.category) + '</span>' +
+    '<h3>' + escapeHTML(post.title) + '</h3>' +
+    '<div class="meta">' + metaLine(post) + '</div>' +
+    '</a></article>';
+}
+
+function renderSidebarItem(post, rank){
+  return '<li><span class="n">' + rank + '</span><a href="' + postUrl(post.slug) + '">' +
+    '<h4>' + escapeHTML(post.title) + '</h4><span>' + escapeHTML(post.category) +
+    (post.readTime ? " · " + post.readTime + " min" : "") + '</span></a></li>';
+}
+
+function renderTickerItem(post){
+  return '<a href="' + postUrl(post.slug) + '">' + escapeHTML(post.title) + '</a><span class="sep">·</span>';
+}
+
+/* ============ SECTION HELPERS ============ */
+function showSection(id, gridId, items){
+  const section = document.getElementById(id);
+  if (!items.length){ section.style.display = "none"; return; }
+  document.getElementById(gridId).innerHTML = items.map(renderSectionCard).join("");
+  section.style.display = "";
+}
+
+function setupTickerLoop(){
+  const track = document.getElementById("tickerTrack");
+  if (!track) return;
+  const extraGroups = track.querySelectorAll(".ticker-group:not(#tickerGroupInner)");
+  extraGroups.forEach(function(g){ g.remove(); });
+  const group = document.getElementById("tickerGroupInner");
+  if (!group) return;
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) return;
+  const clone = group.cloneNode(true);
+  clone.removeAttribute("id");
+  clone.setAttribute("aria-hidden", "true");
+  track.appendChild(clone);
+  const setDur = function(){
+    const w = group.scrollWidth || 0;
+    if (w > 0) track.style.setProperty("--dur", Math.max(18, Math.round(w / 60)) + "s");
+  };
+  if (window.requestAnimationFrame) requestAnimationFrame(setDur); else setTimeout(setDur, 50);
+}
+
+/* ============ MAIN LOAD ============ */
+const HOME_QUERY = '*[_type == "post" && defined(slug.current)] | order(publishedAt desc){' +
+  'title, "slug": slug.current, category, excerpt, coverImage, author, publishedAt, readTime}';
+
+async function loadHomepage(){
+  let posts;
+  try {
+    posts = await sanityFetch(HOME_QUERY);
+  } catch (e) {
+    console.error(e);
+    document.getElementById("heroLead").innerHTML =
+      '<p class="meta" style="padding:40px 0">Unable to load posts right now — please refresh.</p>';
+    return;
+  }
+
+  if (!posts || posts.length === 0){
+    document.getElementById("heroLead").innerHTML =
+      '<p class="meta" style="padding:40px 0">No posts published yet — check back soon.</p>';
+    document.getElementById("heroSide").style.display = "none";
+    document.getElementById("latestHeading").style.display = "none";
+    document.getElementById("feedSection").style.display = "none";
+    document.getElementById("latestLayout").classList.add("single-col");
+    document.getElementById("sidebarList").innerHTML = "";
+    ["entertainmentSection","sportsSection","politicsBusinessSection","lifestyleHealthSection"].forEach(function(id){
+      document.getElementById(id).style.display = "none";
+    });
+    document.getElementById("tickerGroupInner").innerHTML = '<span class="sep">No stories yet</span>';
+    setupTickerLoop();
+    return;
+  }
+
+  // Hero: most recent post as lead, next 2 as side items
+  document.getElementById("heroLead").innerHTML = renderHeroLead(posts[0]);
+  const sideItems = posts.slice(1, 3);
+  const heroSideEl = document.getElementById("heroSide");
+  if (sideItems.length){
+    heroSideEl.innerHTML = sideItems.map(renderHeroSideItem).join("");
+    heroSideEl.style.display = "";
+  } else {
+    heroSideEl.style.display = "none";
+  }
+
+  // Latest feed: everything after what the hero used. Heading + feed rows
+  // hide together when there's nothing extra, but the sidebar (More Stories,
+  // ad, newsletter) always stays visible regardless of post count.
+  const feedPosts = posts.slice(3);
+  const latestHeading = document.getElementById("latestHeading");
+  const feedSection = document.getElementById("feedSection");
+  const latestLayout = document.getElementById("latestLayout");
+  if (feedPosts.length === 0){
+    latestHeading.style.display = "none";
+    feedSection.style.display = "none";
+    latestLayout.classList.add("single-col");
+  } else {
+    latestHeading.style.display = "";
+    feedSection.style.display = "";
+    latestLayout.classList.remove("single-col");
+    const before = feedPosts.slice(0, 3), after = feedPosts.slice(3);
+    document.getElementById("feedRowsBeforeAd").innerHTML = before.map(renderFeedRow).join("");
+    document.getElementById("feedRowsAfterAd").innerHTML = after.map(renderFeedRow).join("");
+    document.getElementById("feedAdRow").style.display = "";
+  }
+
+  // Sidebar "More Stories": most recent 5 overall — always populated
+  const sidebarPosts = posts.slice(0, 5);
+  document.getElementById("sidebarList").innerHTML =
+    sidebarPosts.map(function(p, i){ return renderSidebarItem(p, i + 1); }).join("");
+
+  // Trending ticker: same recent-5 pool
+  document.getElementById("tickerGroupInner").innerHTML = sidebarPosts.map(renderTickerItem).join("");
+  setupTickerLoop();
+
+  // Category section blocks — hidden automatically if no matching posts yet
+  showSection("entertainmentSection", "entertainmentCards",
+    posts.filter(function(p){ return p.category === "Entertainment"; }).slice(0, 3));
+  showSection("sportsSection", "sportsCards",
+    posts.filter(function(p){ return p.category === "Sports"; }).slice(0, 3));
+  showSection("politicsBusinessSection", "politicsBusinessCards",
+    posts.filter(function(p){ return p.category === "Politics" || p.category === "Business"; }).slice(0, 3));
+  showSection("lifestyleHealthSection", "lifestyleHealthCards",
+    posts.filter(function(p){ return p.category === "Lifestyle" || p.category === "Health"; }).slice(0, 3));
+}
+
+/* ============================================================
+   KUMALO AD ENGINE (unchanged)
+   Every element with data-ad-slot="name" is an ad placement.
+   Modes per slot:
+     "adsense" — Google AdSense unit (needs client + slot IDs)
+     "custom"  — your direct-sold ads (customAds below), weighted
+     "auto"    — AdSense if configured → custom ads → house ad
+============================================================ */
+const AD_CONFIG = {
+
+  // STEP 2 of 2: your AdSense publisher ID, e.g. "ca-pub-1234567890123456"
+  adsenseClient: "ca-pub-2663538820791254",
+
+  slots: {
+    leaderboard: { mode: "auto", adsenseSlotId: "", format: "horizontal" },
+    infeed:      { mode: "auto", adsenseSlotId: "", format: "fluid" },
+    sidebar:     { mode: "auto", adsenseSlotId: "", format: "rectangle" },
+    midpage:     { mode: "auto", adsenseSlotId: "", format: "horizontal" },
+    footer:      { mode: "auto", adsenseSlotId: "", format: "horizontal" }
+  },
+
+  /* Direct-sold campaigns. weight = relative frequency. */
+  customAds: [
+    // {
+    //   id: "telco-data-jul",
+    //   headline: "Double data weekends are back",
+    //   body: "Buy any weekly bundle Fri–Sun and get it doubled.",
+    //   cta: "Dial *100#",
+    //   url: "https://example.com",
+    //   art: "2X",
+    //   bg: "#101418",
+    //   imageUrl: "",
+    //   weight: 3
+    // }
+  ],
+
+  houseAd: {
+    headline: "Advertise on Kumalo",
+    body: "Reach Ugandan readers across news, sports, business and entertainment — every day.",
+    cta: "Get the rate card",
+    url: "mailto:ads@kumalo.biz"
+  }
+};
+
+(function initAds(){
+  document.querySelectorAll("[data-ad-slot]").forEach(function(el){
+    const name = el.getAttribute("data-ad-slot");
+    const cfg  = AD_CONFIG.slots[name] || { mode: "auto" };
+    const frame = el.querySelector(".ad-frame") || el;
+    let mode = cfg.mode;
+    if (mode === "auto") {
+      if (AD_CONFIG.adsenseClient && cfg.adsenseSlotId) mode = "adsense";
+      else if (AD_CONFIG.customAds.length) mode = "custom";
+      else mode = "house";
+    }
+    if (mode === "adsense") renderAdsense(frame, cfg);
+    else if (mode === "custom" && AD_CONFIG.customAds.length) renderCustom(frame, name);
+    else renderHouse(frame);
+  });
+
+  function renderAdsense(frame, cfg){
+    frame.style.background = "transparent"; frame.style.border = "none";
+    frame.innerHTML = '<ins class="adsbygoogle" style="display:block;width:100%"' +
+      ' data-ad-client="' + AD_CONFIG.adsenseClient + '"' +
+      ' data-ad-slot="' + cfg.adsenseSlotId + '"' +
+      ' data-ad-format="' + (cfg.format || "auto") + '"' +
+      ' data-full-width-responsive="true"></ins>';
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
+  }
+
+  function renderCustom(frame, slotName){
+    const ad = pickWeighted(AD_CONFIG.customAds);
+    const stacked = (slotName === "sidebar" || slotName === "article_end");
+    const art = ad.imageUrl
+      ? '<div class="art" style="background-image:url(' + ad.imageUrl + ')"></div>'
+      : '<div class="art" style="background:' + (ad.bg || "#101418") + '">' + (ad.art || "AD") + '</div>';
+    frame.innerHTML =
+      '<a class="custom-ad' + (stacked ? " stack" : "") + '" href="' + ad.url + '" target="_blank" rel="noopener sponsored">' +
+        art +
+        '<div class="txt"><h4>' + ad.headline + '</h4><p>' + ad.body + '</p>' +
+        '<span class="cta">' + (ad.cta || "Learn more") + ' →</span></div>' +
+      '</a>';
+  }
+
+  function renderHouse(frame){
+    frame.innerHTML =
+      '<a class="house-ad" href="' + AD_CONFIG.houseAd.url + '">' +
+      '<h4>' + AD_CONFIG.houseAd.headline + '</h4><p>' + AD_CONFIG.houseAd.body + '</p>' +
+      '<span class="go">' + AD_CONFIG.houseAd.cta + ' →</span></a>';
+  }
+
+  function pickWeighted(list){
+    const total = list.reduce((s,a)=>s+(a.weight||1),0);
+    let r = Math.random()*total;
+    for (const a of list){ r -= (a.weight||1); if (r <= 0) return a; }
+    return list[0];
+  }
+})();
+
+function joinNewsletter(){
+  const e = document.getElementById("nlEmail"), ok = document.getElementById("nlOk");
+  if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e.value.trim())){
+    ok.style.display = "block"; e.value = ""; e.style.borderColor = "";
+  } else {
+    e.style.borderColor = "var(--accent)"; e.focus();
+  }
+}
+
+loadHomepage();
+</script>
+</body>
+</html>
