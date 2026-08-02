@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/post.html", "destination": "/api/render-post" },
+    { "source": "/", "destination": "/api/render-home" },
+    { "source": "/index.html", "destination": "/api/render-home" }
+  ]
+}
